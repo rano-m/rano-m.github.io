@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Project Details</title>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="navbar">
+    <!-- Score Ledger -->
+    <div id="score-ledger1"></div>
+    <a class="logo" href="portfolio.html">Portfolio</a>
+    <div class="nav-links">
+        <a class="n-link" href="portfolio.html#home">Home</a>
+        <a href="portfolio.html#resume">Resume/CV</a>
+        <a href="portfolio.html#contact">Contact Me</a>
+    </div>
+</div>
+
+<div class="main-container">
+    <!-- Scrollable Section -->
+    <div class="scrollable-section">
+        <!-- Project 1 -->
+        <div class="project">
+            <h1 class="project-title">"Find the Odd" Game</h1>
+            <p class="code-link"><strong>Code:</strong> <a href="https://github.com/rano-m/FindTheOdd" target="_blank">GitHub</a></p>
+            <div class="image-grid">
+                <a href="./images/software/javafx_2.png" class="image-link" onclick="openImage('./images/software/javafx_2.png')">
+                    <img src="./images/software/javafx_2.png" alt="Project Image">
+                </a>
+                <a href="./images/software/preview.png" class="image-link" onclick="openImage('./images/software/preview.png')">
+                    <img src="./images/software/preview.png" alt="Project Image">
+                </a>
+                <a href="./images/software/javafx_4.png" class="image-link" onclick="openImage('./images/software/javafx_4.png')">
+                    <img src="./images/software/javafx_4.png" alt="Project Image">
+                </a>
+                <a href="./images/software/javafx_3.png" class="image-link" onclick="openImage('./images/software/javafx_3.png')">
+                    <img src="./images/software/javafx_3.png" alt="Project Image">
+                </a>
+            </div>
+            <p class="project-description">
+                Find the Odd is a  the project is crafted using Java, with a focus on leveraging the JavaFX framework for creating a dynamic and visually appealing user interface. The implementation follows Object Oriented Programming principles, emphasizing modularity and encapsulation. Through the utilization of JavaFX and OOP, the project provides an interactive and immersive gaming experience, challenging players to identify the odd image within a set timeframe.
+            </p>
+            <p class="project-description">
+                The game begins with a Start Window, providing the player with essential information about the game and featuring a "Start Game" button. Once initiated, the interface transforms to reveal a dynamic layout comprising a Top HBox and a GridPane, both nested within a BorderPane. The HBox incorporates Time and Score Labels, each accompanied by descriptive text.
+            </p>
+            <p class="project-description">
+                A crucial aspect of the project involves implementing a timer mechanism utilizing the TimeLine class, set to a default time of 60 seconds. Simultaneously, the player's score is initialized to zero. The game progresses as the player attempts to identify the odd image from a matrix of buttons, each embedded with dynamically generated images.
+            </p>
+            <p class="project-description">
+                The images for the game are sourced from external files, containing pictures of animals with subtle differences. One image among the set is randomly designated as the odd image, contributing to the game's variability and challenge. The player's score increments with each correct identification, while incorrect selections do not affect the score.
+            </p>
+            <p class="project-description">
+                Upon the timer reaching zero, the game interface is cleared, presenting a "Game Over" message, the player's final score, and an option to restart the game with a "Play Again" button. The project's codebase is hosted on GitHub, allowing for version control and collaborative development. The use of Java, JavaFX, and dynamic image loading contributes to an engaging and interactive gaming experience in the "Find the Odd" project.
+            </p>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+<div class="image-modal" id="imageModal" onclick="closeImage()">
+    <span class="close-modal" onclick="closeImage()">&times;</span>
+    <button class="modal-btn" id="prevBtn" onclick="changeImage(-1)">&#8249;</button>
+    <img class="modal-content" id="modalImage">
+    <button class="modal-btn" id="nextBtn" onclick="changeImage(1)">&#8250;</button>
+</div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const imageLinks = document.querySelectorAll('.image-link');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        imageLinks.forEach(function (link, index) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                currentIndex = index;
+                const imagePath = this.getAttribute('href');
+                openImage(imagePath);
+            });
+        });
+
+        modal.addEventListener('click', function () {
+            closeImage();
+        });
+
+        modalImage.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        prevBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+            changeImage(-1);
+        });
+
+        nextBtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+            changeImage(1);
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeImage();
+            } else if (event.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeImage(1);
+            }
+        });
+
+        function openImage(imagePath) {
+            modal.style.display = 'flex';
+            modalImage.src = imagePath;
+        }
+
+        function closeImage() {
+            modal.style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = imageLinks.length - 1;
+            } else if (currentIndex >= imageLinks.length) {
+                currentIndex = 0;
+            }
+
+            const imagePath = imageLinks[currentIndex].getAttribute('href');
+            openImage(imagePath);
+        }
+    });
+</script>
+
+
+</body>
+</html>

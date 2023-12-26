@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rano Marufova - Portfolio</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+                    <!-- Score Ledger -->
+                    <div id="score-ledger1"></div>
+        <div class="logo" href="portfolio.html">Portfolio</div>
+        <div class="nav-links">
+            <a class ="n-link" href="#home">Home</a>
+            <a href="#resume">Resume/CV</a>
+            <a href="#contact">Contact Me</a>
+        </div>
+    </div>
+
+
+    
+
+<!-- Congrats Message with Stars Ledger -->
+<div id="congrats-message" class="message-block">
+    <p id="score-ledger2"></p>
+    <div id="congrats-score-ledger"></div>
+    <button id="close-congrats-message">OK</button>
+    
+</div>
+
+
+
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+        <div class="intro-container">
+            <img class = "main_image" src=".\images\portrait.PNG" alt="Photo">
+            <div class="intro-text">
+                <h1>Rano Marufova</h1>
+                <p id="intro-text">Hi. I am programmer and this is my protfolio.</p>
+            </div>
+        </div>
+        <section class="scroll-down">
+            <div class="scrolldown-wrapper">
+                <p>scroll down</p>
+                <div class="scrolldown">
+                    <svg height="30" width="10">
+                        <circle class="scrolldown-p1" cx="5" cy="15" r="2" />
+                        <circle class="scrolldown-p2" cx="5" cy="15" r="2" />
+                    </svg>
+                </div>
+            </div>
+            <!-- <img src="down-arrow-icon.png" alt="Scroll Down Icon"> -->
+        </div>
+    </section>
+    
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+    <h2>Projects</h2>
+
+    <!-- Category: Web Development -->
+    <div class="project-category">
+        <h3>Software Engineering</h3>
+        <!-- Project 1 -->
+        <div class="project">
+            <img src="./images/software/javafx_preview.png" alt="JavaFX Game" class="project-image">
+            <div class="overlay"></div> <!-- Overlay for hover effect -->
+            <h4>JavaFX Game</h4>
+            <button class="view-project-btn"><a href="javafx.html">View Project</a></button>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project">
+            <img src="./images/software/wac_connect_preview.png" alt="JavaFX Game" class="project-image">
+            <div class="overlay"></div> <!-- Overlay for hover effect -->
+            <h4>WAC Connect App (ReactJs+Firebase)</h4>
+            <button class="view-project-btn"><a href="wac_connect.html">View Project</a></button>
+        </div>
+    </div>
+
+    <!-- Category: Mobile Apps -->
+    <div class="project-category">
+        <h3>Undergraduate Thesis</h3>
+        <!-- Project 1 -->
+        <div class="project">
+            <img src="./images/thesis/thesis_preview.png" alt="Thesis" class="project-image">
+            <div class="overlay"></div> <!-- Overlay for hover effect -->
+            <h4>Bitcoin: Critical Analysis</h4>
+            <button class="view-project-btn"><a href="udergrad_thesis.html">View Project</a></button>
+        </div>
+    </div>
+</section>
+
+
+<!-- Resume Section -->
+<section id="resume" class="resume-section">
+    <div class="resume-container">
+        <h2>Resume/CV</h2>
+        <div class="resume-content">
+            <!-- Resume Download Button -->
+            <div class="resume-download">
+                <p>Download Resume</p>
+                <a href="./files/RanoMarufova_Resume.pdf" download="Rano_Marufova_Resume.pdf">
+                    <button>Download</button>
+                </a>
+            </div>
+            <!-- Additional Resume Content -->
+            <!-- Add any additional content or details about your resume here -->
+        </div>
+    </div>
+</section>
+<!-- Hidden Stars -->
+<div class="hidden-star" data-points="1" style="top: 100px; left: 200px;">&#9733;</div>
+<div class="hidden-star" data-points="1" style="top: 300px; left: 900px;">&#9733;</div>
+<div class="hidden-star" data-points="1" style="top: 800px; left: 300px;">&#9733;</div>
+<div class="hidden-star" data-points="1" style="top: 200px; left: 800px;">&#9733;</div>
+<div class="hidden-star" data-points="1" style="top: 1600px; left: 100px;">&#9733;</div>
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <h2>Contact</h2>
+    <div class="contact-info">
+        <!-- LinkedIn -->
+        <div class="contact-item">
+            <h3>LinkedIn</h3>
+            <p><a href="https://www.linkedin.com/in/r%D0%B0no-marufova/" target="_blank">Connect</a></p>
+        </div>
+        <!-- Email -->
+        <div class="contact-item">
+            <h3>Email</h3>
+            <p><a href="ranomarufova@gmail.com">ranomarufova@gmail.com</a></p>
+        </div>
+        <!-- Additional Contact Information -->
+        <!-- Add any additional contact information or social media links here -->
+    </div>
+
+</section>
+    <script src="script.js">
+    </script>
+    <!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2023 Rano Marufova. All rights reserved.</p>
+</footer>  
+</body>
+</html>
