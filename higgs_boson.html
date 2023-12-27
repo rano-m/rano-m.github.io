@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Project Details</title>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="navbar">
+    <!-- Score Ledger -->
+    <div id="score-ledger1"></div>
+    <a class="logo" href="index.html">Portfolio</a>
+    <div class="nav-links">
+        <a class="n-link" href="index.html#home">Home</a>
+        <a href="index.html#resume">Resume/CV</a>
+        <a href="index.html#contact">Contact Me</a>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="scrollable-section">
+        <div class="project">
+            <h1 class="project-title">Classification of Signal and Background in Search for Di-Higgs Boson at Large Hadron Collider</h1>
+            <p class="code-link"><strong>Poster Report:</strong> <a href="./files/Higgs_Boson_Classification_Poster_RanoMarufova.pdf" target="_blank">PDF</a></p>
+            <div class="image-grid">
+                <a href="./images/research/higgs_bosson_1.jpg" class="image-link" onclick="openImage('./images/research/higgs_bosson_1.jpg')">
+                    <img src="./images/research/higgs_bosson_1.jpg" alt="Project Image">
+                </a>
+            </div>
+            <p class="project-description">
+                In this research, we leveraged Machine Learning (ML) techniques, specifically classification
+algorithms, to address a fundamental challenge in particle physics: separating signal and
+background events. Classification is a supervised learning algorithm that assigns events to
+predefined categories based on given input variables (features). Our focus was on classifying
+simulated Di-Higgs boson (HH) process as the signal and non-Di-Higgs boson (non-HH)
+processes as the background, wherein each input variable represented a detector
+measurement. We augmented this dataset by engineering new variables informed by our
+understanding of the Higgs boson and its predicted properties.
+</p>
+<p class="project-description">
+We employed three different classification algorithms available in the Toolkit for Multi-Variate
+Analysis (TMVA) developed by CERN: Boosted Decision Trees (BDT), Support Vector Machines
+(SVM), and K-Nearest Neighbors (KNN). We systematically optimized these algorithms by
+varying the input features and the algorithm’s hyperparameters, which resulted in the
+maximum values of signal significance for each algorithm. 
+            </p>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+<div class="image-modal" id="imageModal" onclick="closeImage()">
+    <span class="close-modal" onclick="closeImage()">&times;</span>
+    <button class="modal-btn" id="prevBtn" onclick="changeImage(-1)">&#8249;</button>
+    <img class="modal-content" id="modalImage">
+    <button class="modal-btn" id="nextBtn" onclick="changeImage(1)">&#8250;</button>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
