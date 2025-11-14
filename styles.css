@@ -5,12 +5,13 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #ffffff;
+    color: #000000;
 }
 
 
@@ -18,36 +19,89 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    position: relative;
+    padding: 30px 50px;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
     width: 100%;
     z-index: 1000;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff3333;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
 }
 
 .nav-links a {
-    margin: 0 15px;
     text-decoration: none;
-    color: #527853; 
-    transition: color 0.3s ease; 
+    color: #ff3333;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
 }
 
 .nav-links a:hover {
-    color: orange;
+    color: #000000;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #000000;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Vertical Accent Text */
+.vertical-text {
+    position: fixed;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #ff3333;
+    z-index: 999;
+    white-space: nowrap;
+}
+
+/* Hide vertical text on mobile */
+@media screen and (max-width: 768px) {
+    .vertical-text {
+        display: none;
+    }
 }
 
 .home-section {
-    padding: 100px 0;
-    padding-bottom: 0px;
+    padding: 150px 50px;
+    min-height: 85vh;
     text-align: center;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .intro-container {
@@ -55,24 +109,37 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+}
+
+.intro-container h1 {
+    font-size: 64px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    letter-spacing: -1px;
 }
 
 #intro-text {
-    margin: 30px;
-    color: #333;
-    white-space: pre;
-    overflow: hidden;
-    border-right: 2px solid #333;
-    animation: typing 3s steps(30, end);
-    margin-bottom: 20px;
+    font-size: 20px;
+    color: #666666;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0;
+    white-space: normal;
+    border: none;
+    animation: fadeIn 1.5s ease-in;
 }
 
-@keyframes typing {
+@keyframes fadeIn {
     from {
-        width: 0;
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
-        width: 100%;
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -81,28 +148,30 @@ body {
 }
 
 .scroll-down {
-    margin-top: 70px;
-    color: #999;
+    margin-top: 80px;
+    color: #cccccc;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .scroll-down p {
-    font-size: smaller;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
-
-
 
 img {
     max-width: 100%; 
     height: auto; 
-  
 }
 
 .main_image {
-    height: 120px;
-    width: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff3333;
 }
 
 
@@ -130,7 +199,7 @@ img {
     animation-duration: 2.0s;
     animation-name: scrolldown;
     animation-iteration-count: infinite;
-    fill: #536153;
+    fill: #ff3333;
 }
 
 .scrolldown-p2 {
@@ -152,60 +221,100 @@ img {
     }
 }
 
-/* Responsive Navigation */
+/* Responsive Styles */
 @media screen and (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: center;
+        padding: 20px 30px;
     }
 
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.8);
-        z-index: 1000;
-        text-align: center;
-    }
-
-    .navbar.active .nav-links {
-        display: flex;
+        gap: 25px;
     }
 
     .nav-links a {
-        margin: 15px 0;
+        font-size: 12px;
+    }
+
+    .intro-container h1 {
+        font-size: 42px;
+    }
+
+    #intro-text {
+        font-size: 16px;
+    }
+
+    .main_image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .projects-section h2,
+    .resume-section h2,
+    .contact-section h2 {
+        font-size: 36px;
+    }
+
+    .project-image {
+        width: 240px;
+        height: 180px;
+    }
+
+    .contact-info {
+        gap: 50px;
     }
 }
 /* Project Section */
 .projects-section {
-    padding: 100px 0;
+    padding: 120px 50px;
     text-align: center;
-    background-color: #f8f8f8;
+    background-color: #ffffff;
+}
+
+.projects-section h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 80px;
+    letter-spacing: -1px;
 }
 
 .project-category {
-    margin-top: 40px;
+    margin-top: 80px;
+    margin-bottom: 60px;
 }
-.project-category h3{
-    color: orange;
+
+.project-category h3 {
+    color: #ff3333;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
 }
 
 .project {
     position: relative;
     display: inline-block;
-    margin: 10px;
-    overflow: hidden; /* Hide overflow for rounded corners */
+    margin: 30px 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
 }
 
 .project-image {
     position: relative;
-    width: 200px; /* Set the desired fixed width */
-    height: 150px; /* Set the desired fixed height */
-    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    width: 280px;
+    height: 210px;
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.project:hover .project-image {
+    border-color: #ff3333;
 }
 
 .overlay {
@@ -214,55 +323,72 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: rgba(255, 51, 51, 0.05);
     opacity: 0; 
     transition: opacity 0.3s ease-in-out;
-    /* border-radius: 8px; Optional: Add rounded corners to the overlay */
 }
 
 .project:hover .overlay {
-    opacity: 1; /* Show overlay on hover */
+    opacity: 1;
 }
 
 .view-project-btn {
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 10px 20px;
-    font-size: 10px;
-    color: #fff;
-    background-color: #9ba794; /* Grey button color, adjust as needed */
+    padding: 12px 28px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background-color: #ff3333;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .project:hover .view-project-btn {
-    opacity: 1; /* Show button on hover */
+    opacity: 1;
 }
 
-.project h4,
-.project a {
-    position: relative;
-    z-index: 1; 
-    color: #171616; 
+.view-project-btn:hover {
+    background-color: #000000;
 }
+
+.view-project-btn a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .project h4 {
-    font-size: 12px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: 0.5px;
 }
+
 .project a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
 /* Resume Section Styles */
 .resume-section {
-    padding: 100px 0;
-    background-color: rgba(255, 255, 255, 0.8);
+    padding: 120px 50px;
+    background-color: #fafafa;
     text-align: center;
+}
+
+.resume-section h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
 }
 
 .resume-container {
@@ -271,144 +397,104 @@ img {
 }
 
 .resume-content {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .resume-download {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .resume-download p {
-    font-size: 18px;
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 25px;
 }
 
 .resume-download button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #527853;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    padding: 15px 40px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #ff3333;
+    color: #ffffff;
+    border: 2px solid #ff3333;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .resume-download button:hover {
-    background-color: #386735;
+    background-color: #000000;
+    border-color: #000000;
 }
 
 /* Contact Section Styles */
 .contact-section {
-    padding: 100px 0;
+    padding: 120px 50px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #ffffff;
+}
+
+.contact-section h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
 }
 
 .contact-info {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    gap: 80px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .contact-item {
-    margin: 20px;
+    text-align: center;
 }
 
 .contact-item h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #000000;
 }
 
 .contact-item p {
     font-size: 14px;
+    color: #666666;
 }
 
 .contact-item a {
-    color: #527853;
+    color: #ff3333;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
-    text-decoration: underline;
+    color: #000000;
 }
 
-/* Styles for the score ledger */
-#score-ledger1 {
-    position: fixed;
-    top: 60px; 
-    right: 30px;
-    display: flex;
-    gap: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-
-#score-ledger2 {
-    top: 20px;
-    
-}
-
-
-.hidden-star {
-    position: absolute; 
-    cursor: pointer;
-    color: orange;
-}
-
-
-/* Style for filled star */
-.filled-star {
-    color: orange; /* You can customize the color */
-}
-.filled-star {
-    display: inline-block;
-    font-size: 20px; /* Adjust the font size as needed */
-    margin-right: 5px; /* Adjust the spacing between stars */
-}
-
-/* CSS for the message block */
-.message-block {
-    
-    opacity: 95%;
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid #aba8a8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    font-size: 12px;
-    text-align: center; 
-    align-items: center;
-}
-
-#close-congrats-message {
-    
-    padding: 10px 20px;
-    background-color: #527853;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto; /* Center the button */
-    margin-top: 50px; /* Adjust the top margin as needed */
-}
+/* Removed old score ledger and star elements - no longer needed */
 
 
 .footer {
-    background-color: #527853;
-    color: #151515;
+    background-color: #000000;
+    color: #ffffff;
     text-align: center;
-    padding: 2px 0;
+    padding: 30px 0;
     width: 100%;
-    font-size: 10px;
+    font-size: 11px;
     position: relative;
     margin-top: auto;
+    letter-spacing: 1px;
 }
 
 
@@ -422,8 +508,7 @@ img {
     justify-content: center;
     align-items: center;
     position: relative;
-    /*background: url('your-background-image.jpg') no-repeat center center fixed;  Set background image or color */
-   background-color: #bdd6bb;
+    background-color: #fafafa;
     background-size: cover;
 }
 
