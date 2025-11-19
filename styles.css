@@ -258,17 +258,30 @@ body {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+        padding: 15px;
+    }
+
+    .project-link-static {
+        padding: 15px;
+    }
+
+    .project-name {
+        font-size: 15px;
     }
 
     .project-tech {
         text-align: left;
+        font-size: 11px;
+    }
+
+    .project-description {
+        font-size: 12px;
     }
 
     .arrow {
         position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+        right: 15px;
+        top: 20px;
     }
 
     .cta-button {
@@ -339,6 +352,15 @@ body {
     text-align: right;
 }
 
+.project-tech a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.project-tech a:hover {
+    color: #ff3333;
+}
+
 .arrow {
     font-size: 20px;
     color: #ff3333;
@@ -348,6 +370,20 @@ body {
 
 .project-item:hover .arrow {
     opacity: 1;
+}
+
+/* Static Project Items (no link) */
+.project-link-static {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 8px;
+}
+
+.project-description {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #666666;
 }
 
 
@@ -397,8 +433,8 @@ body {
 
 
 .footer {
-    background-color: #000000;
-    color: #666666;
+    background-color: #ffffff;
+    color: #999999;
     text-align: center;
     padding: 20px 0;
     width: 100%;
@@ -406,7 +442,7 @@ body {
     position: relative;
     margin-top: auto;
     letter-spacing: 2px;
-    border-top: 1px solid #333333;
+    border-top: 2px solid #e0e0e0;
 }
 
 
